@@ -4,8 +4,8 @@
 	</head>
 	<body bgcolor="#FFFFFF">
 		
-		<img src="redes.png" width=100%><br>
-        <img src="logo.png" width=100%> 
+		<img src="img/IMG-20250707-WA0005.jpg" width=100%><br>
+        <img src="img/IMG-20250707-WA0002.jpg" width=100%> 
 		<br>
 		<font color="#FFE4C4" size=5> <b>Servicios </b></font>
         <font color="grey">
@@ -18,7 +18,7 @@
         <br>
         *Todos nuestros paquetes tienen una vigencia de 6 meses a partir de la primera consulta
         </font><br><br><br>
-		<form> 
+		<form id="nutricionForm"> 
 		<table  width="100%">
 		  <tr bgcolor="#FFE4C4"  align="center">
                 <td ><font size="4" color="FFFFFF"><b>Consulta online o presencial</b></font></td>
@@ -27,32 +27,32 @@
           </tr>    
           <tr>
             <td>
-		        <input type="radio" ><font color="grey">Primera Consulta $850 MXN<br>
-				<input type="radio">Seguimiento  $700 MXN<br>
-				<input type="radio">Paquete de 3 Consultas  $2,000 MXN<br>
-				<input type="radio" >Paquete  pareja  $5,000 MXN<br>
+		        <input type="radio" name="consultas" value="primerConsulta"><font color="grey">Primera Consulta $850 MXN<br>
+				<input type="radio" name="consultas" value="seguimiento">Seguimiento  $700 MXN<br>
+				<input type="radio" name="consultas" value="paqueteTres">Paquete de 3 Consultas  $2,000 MXN<br>
+				<input type="radio" name="consultas" value="paquetePareja">Paquete  pareja  $5,000 MXN<br>
                 </font>
             </td>
             <td>
               
-			  <select>
-				<option><font color="grey">Análisis de Composición corporal Sin consulta +  $200</font></option>
-				<option><font color="grey">Análisis de Composición corporal con consulta +  $1000</font></option>
+			  <select id="analisis" name="analisis">
+				<option value="sinConsulta"><font color="grey" >Análisis de Composición corporal Sin consulta +  $200</font></option>
+				<option value="conConsulta"><font color="grey" >Análisis de Composición corporal con consulta +  $1000</font></option>
 			  </select>
                 
 			</td>
 			<td>
 			   <font color="grey">
-		        <input type="checkbox">Recetas $1,000<br>
-				<input type="checkbox">Ejercicios  $1,000<br>
-				<input type="checkbox">Revista semanal $150<br>
+		        <input type="checkbox" name="extras" value="recetas" data-precio="1000">Recetas $1,000<br>
+				<input type="checkbox" name="extras" value="ejercicios" data-precio="1000">Ejercicios  $1,000<br>
+				<input type="checkbox" name="extras" value="revista" data-precio="150">Revista semanal $150<br>
                 </font>
 			</td>
 		</tr>	
       </table>
       <table>
 		<tr align="center">
-          <img src="contacto.png" width=100%>   
+          <img src="img/IMG-20250707-WA0004.jpg" width=100%>   
         </tr>
       </table>
       <table  width="70%" align="center">
@@ -67,18 +67,27 @@
 			    Domicilio<input type="text" size="25"><br>
 		   </td>
            <td>
-			  <select >
-				<option>Efectivo  +0%</option>
-				<option>Tarjeta de Credito o Debito +6%</option>
-				<option>Transferencia Electronica + 3%</option>
+			  <select name="tipoPago" id="tipoPago">
+				<option value="efectivo">Efectivo  +0%</option>
+				<option value="tarjetaCD">Tarjeta de Credito o Debito +6%</option>
+				<option value="transferencia">Transferencia Electronica + 3%</option>
 			   </select>
 			</td>	  
             <td>
 			   <input type="text" name="FAC" size="15"> 
 			</td>
-          </tr>			
+          </tr>		
+		  <tr>
+			<td colspan="3" align="center">
+				<label for="totalPago">Total a pagar: $</label>
+				<input type="number" id="totalPago" name="totalPago" size="10" readonly> 
+				<br><br>
+				<input type="button" value="Calcular Total" onclick="calcularTotal()">
+			</td>	
 		</table>	
         <hr color="black">
 	   </form>
+
+	   <script src="script.js"></script>
 	</body>
 </html>
