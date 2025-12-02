@@ -44,17 +44,15 @@ function calcularTotal() {
 
     // --- SECCIÓN EXTRAS (con .forEach) ---
 
-var listaDeExtras = nutricionForm.querySelectorAll('input[name="extras"]');
-
-listaDeExtras.forEach(function(checkbox) {
-    
-    if (checkbox.checked) {
-        
-        var precioItem = checkbox.dataset.precio;
-        
-        total += parseFloat(precioItem);
+    if (nutricionForm.recetas.checked) {
+        total += 1000;
     }
-});
+    if (nutricionForm.ejercicios.checked) {
+        total += 1000;
+    }   
+    if (nutricionForm.revista.checked) {
+        total += 150;
+    }  
 
     var tipoPago = nutricionForm.tipoPago.value;
 
@@ -71,6 +69,7 @@ listaDeExtras.forEach(function(checkbox) {
     
     }
 
+    alert("Gracias por tu interes.")
     nutricionForm.totalPago.value = total;
     console.log("Total a pagar: $" + total);
 }
